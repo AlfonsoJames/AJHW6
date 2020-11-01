@@ -1,13 +1,10 @@
 var APIkey = "cd9a0bbdc14e65849d8ca690b227df87"
 var savedCities = [];
-// console.log(savedCities);
-// savedCities.reverse();
+
 //function to grab previous cities
 function loadOld() {
   savedCities = JSON.parse(localStorage.getItem("history")) || [];
-  // console.log(savedCities);
-  if (savedCities == ""){
-    
+  if (savedCities == ""){  
   } else {
       callCurrent(savedCities[savedCities.length-1]);
   };
@@ -25,12 +22,10 @@ function populateHistory() {
   $.each(savedCities, function(){
     var previous = $("<div>").html(this);
     previous.addClass("col click");
-    // console.log(this);
     previous.attr('id', this);
-    // console.log(previous);
     $(".history").prepend(previous);
   });
-    /// click event for old city
+    /// click event for old city in history
     $(".click").click(function(){
       var id = $(this).attr("id");
       var city = id;
@@ -50,11 +45,9 @@ function callUV(lat, lon) {
     url: uvIndexURL,
     method: "GET"
    }).then(function (res) {
-    // console.log(res[0].value)
     $(".uv").text("UV-index : " + res[0].value);
     var rating = res[0].value;
-    
-    // console.log(rating);
+    // change rating color
     if (rating >= 11) {
         $(".uv").css('color', "purple");
     } else if (rating >= 8) {
@@ -78,16 +71,85 @@ function forecast(city) {
     url: forecastURL,
     method: "GET"
   }).then(function (res) {
-    // catches 5 different days at 3:00 instead of every 3 hours
     var filteredList = res.list.filter(function(item){
       return item.dt_txt.indexOf("15:00:00") > -1;
     });
-    // console.log(res);
+    populateHistory();
     var mainIconID = res.list[0].weather[0].icon
     var mainIconUrl = "https://openweathermap.org/img/wn/" + mainIconID + "@2x.png";
     var mainIcon = $("<img>");
     mainIcon.attr("src", mainIconUrl).attr("style", "width: 200px;");
     $(".mainIcon").append(mainIcon);
+    console.log(mainIconID);
+    var backG = $("main")
+    var clearD = './assets/sunshine.jpg';
+    var clearN ='./assets/clearnight.jpg';
+    var scattered = './assets/scat.jpg';
+    var partlyC = './assets/prtcloud.jpg';
+    var overcast = './assets/overcast.jpg'
+    var rainD = './assets/rainy.jpg';
+    var rainN = './assets/rainy-night.jpg';
+    var thunder = './assets/thunder.jpg';
+    var snow = './assets/snow.jpg';
+    var fog = './assets/fog.jpeg';
+    var spectrum = './assets/spectrum.jpg';
+    switch (mainIconID) {
+      case "01d":
+        backG.css('background-image', 'url(' + clearD + ')')
+        break;
+      case "01n":
+        backG.css('background-image', 'url(' + clearN + ')')
+        break;
+      case "02d":
+        backG.css('background-image', 'url(' + scattered + ')')
+        break;
+      case "02n":
+        backG.css('background-image', 'url(' + scattered + ')')
+        break;  
+      case "03d":
+        backG.css('background-image', 'url(' + partlyC + ')')
+        break;
+      case "03n":
+        backG.css('background-image', 'url(' + partlyC + ')')
+        break;
+      case "04d":
+        backG.css('background-image', 'url(' + overcast + ')')
+        break;
+      case "04n":
+        backG.css('background-image', 'url(' + overcast + ')')
+        break;
+      case "09d":
+        backG.css('background-image', 'url(' + rainD + ')')
+        break;
+      case "09n":
+        backG.css('background-image', 'url(' + rainN + ')')
+      case "10d":
+        backG.css('background-image', 'url(' + rainD + ')')
+        break;
+      case "10n":
+        backG.css('background-image', 'url(' + rainN + ')')
+        break;  
+      case "11d":
+        backG.css('background-image', 'url(' + thunder + ')')
+        break;
+      case "11n":
+        backG.css('background-image', 'url(' + thunder + ')')
+        break;  
+      case "13d":
+        backG.css('background-image', 'url(' + snow + ')')
+        break;  
+      case "13n":
+        backG.css('background-image', 'url(' + snow + ')')
+        break;  
+      case "50d":
+        backG.css('background-image', 'url(' + fog + ')')
+        break;
+      case "50n":
+        backG.css('background-image', 'url(' + fog + ')')
+        break;    
+        default:
+        backG.css('background-image', 'url(' + spectrum + ')')  
+    }
     
     $(".forecast").html("");
     for ( i = 0; i < filteredList.length; i++) {
@@ -95,14 +157,7 @@ function forecast(city) {
       var iconId = filteredList[i].weather[0].icon;
       var humidity = filteredList[i].main.humidity;
       var date = new Date(filteredList[i].dt_txt);
-
       var day = date.getDate();
-      // console.log(day);
-      // var month = date.getMonth();
-      // var year = date.getFullYear();
-
-      // var formatedDate = `${month + 1}/${day}/${year}`;
-      // Creating and storing a div tag
       var card = $("<div>").attr("class", "overall col card mb-3").attr("style","max-width: auto;");
       var cardHeader = $("<div>").attr("class", "card-header day").attr("id", "display");
       var cardBody = $("<div>").attr("class","card-body"); 
@@ -112,9 +167,6 @@ function forecast(city) {
       
       cardHeader.append(cardBody);
       card.append(cardHeader);
-
-      // Creating a paragraph tag with the response item
-      // var day = $("<p>").text(formatedDate);
 
       switch (date.getDay()) {
         case 0:
@@ -138,14 +190,10 @@ function forecast(city) {
         case 6:
           day = "Saturday";
       }
-      // console.log(day);
-      // Creating and storing an image tag
 
       var iconUrl = "https://openweathermap.org/img/wn/" + iconId + "@2x.png";
-      // var iconUrl = "./assets/"
-
       var icon = $("<img>");
-      // Setting the src attribute of the image to a property pulled off the result item
+
       icon.attr("src", iconUrl);
       $(".mainIcon").append(icon);
       cardTitle.prepend(icon);
@@ -153,33 +201,28 @@ function forecast(city) {
       cardBody.append(cardTextT);
       cardBody.append(cardTextH);
       cardHeader.append(day);  
-      cardTextT.text("Temp: " + temp + "°F");
+      cardTextT.text("Temp: " + Math.round(temp) + "°F");
       cardTextH.text("Humidity: " + humidity + "%");
-
       $(".forecast").append(card);
     };
   });
 }
+
 //search button function
 $('.btn').click(function(e){
   e.preventDefault();
   var city=$("#input").val().trim().toUpperCase();
   if  (city == null || city == "") {
     alert("Please Enter Name of City");
-  } else { 
+  } else {
     $("#display").empty();
-    // console.log(city);
-    if(!savedCities.includes(city)){
-      savedCities.push(city);
-      saveNew();
-    }
-    populateHistory();
+    
     $(".clock").remove();
     callCurrent(city);
 
   }  
 });
-// ajax call current function
+// ajax call function
 function callCurrent(city) {
   var queryURL = "https://api.openweathermap.org/data/2.5/forecast?appid=" + APIkey + "&units=imperial&q=" + city;
   $(".current-info").empty();
@@ -189,11 +232,11 @@ function callCurrent(city) {
     }).then(function(res) {
       // console.log(res);
       var getSpeed= (res.list[0].wind.speed);
-      var wind = $("<div>").html("Wind Speed: "+ getSpeed + " mph");
+      var wind = $("<div>").html("Wind Speed: "+ Math.round(getSpeed) + " mph");
       var getHumidity= (res.list[0].main.humidity);
       var humid = $("<div>").html("Humidity:  " + getHumidity + " %");
       var getTemp = (res.list[0].main.temp_max);
-      var temp = $("<div>").html("Today's Hi Temp:  " + getTemp + "°F");
+      var temp = $("<div>").html("Today's Hi Temp:  " + Math.round(getTemp) + "°F");
       var cityName = $("<h1>").html(city + ", "+(res.city.country));
       var uv = $("<div>");
       var getDate = new Date();
@@ -221,6 +264,16 @@ function callCurrent(city) {
       $(".current-info").append(uv);
       callUV(res.city.coord.lat, res.city.coord.lon);
       forecast(city);
+      if(!savedCities.includes(city)){
+        savedCities.push(city);
+        saveNew();
+      // } else {
+      //   var previous = $("<div>").html(city);
+      //   $('.history').remove(previous)
+      //   previous.addClass("col click");
+      //   previous.attr('id', this);
+      //   $(".history").prepend(previous);
+      }
 
 
     });
