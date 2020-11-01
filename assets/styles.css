@@ -3,13 +3,15 @@ body {
     background-image: url(./spectrum.jpg);
     z-index: 0;
     height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
     
 }
 header { 
     color: ivory;
     background-image: url(./spectrum.jpg);
     text-align: center;
-    text-shadow: 5px 5px 10px black;
+    text-shadow: 5px 5px 5px black;
     box-shadow: 0px 5px 20px 15px rgba(0, 0, 0, 0.8);
     position: relative;
     z-index: 3;
@@ -25,7 +27,7 @@ main {
     margin-left: 15px;
     top: 0px;
     box-shadow: 0px 5px 20px 15px rgba(0, 0, 0, 0.8);
-    text-shadow: 5px 5px 10px black;
+    text-shadow: 5px 5px 5px black;
     z-index: 2;
 
 }
@@ -53,7 +55,7 @@ main {
 .history {
    
     z-index: 3;
-    box-shadow: 5px 5px 10px 0px black;
+    box-shadow: 5px 5px 10px 5px black;
     cursor: pointer;
 }
 .display {
@@ -70,7 +72,7 @@ main {
 }
 footer {
     color: white;
-    text-shadow: 5px 5px 10px black;
+    text-shadow: 5px 5px 5px black;
     position: relative;
     align-content: center;
     margin-top: 25px;
@@ -83,7 +85,7 @@ footer {
     background-color:  transparent;
 }
 .overall {
-    background-color: rgba(255, 255, 255, 0.363);
+    background-color: rgba(77, 77, 77, 0.5);
     height: 90%;
 }
 .clock{
