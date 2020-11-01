@@ -3,7 +3,7 @@ body {
     background-image: url(./spectrum.jpg);
     z-index: 0;
     height: 100vh;
-    width: auto;
+    
 }
 header { 
     color: ivory;
@@ -25,6 +25,7 @@ main {
     top: 0px;
     box-shadow: 0px 5px 20px 15px rgba(0, 0, 0, 0.8);
     text-shadow: 5px 5px 10px black;
+    z-index: 2;
 
 }
 
@@ -52,11 +53,19 @@ main {
    
     z-index: 3;
     box-shadow: 5px 5px 10px 0px black;
+    cursor: pointer;
 }
-#display {
+.display {
     
     margin: auto;
     z-index: 4;
+    background-color: transparent;
+    border: none;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    border-bottom-width: 0px;
+
+    /* background-image: radial-gradient(#1aff00ba, #0052ff); */
 }
 footer {
     color: white;
@@ -67,3 +76,32 @@ footer {
     margin-left: auto;
     margin-right: auto;
 }
+.day {
+    padding-left: 0pt;
+    padding-right: 0pt;
+    background-color:  transparent;
+}
+.overall {
+    background-color: rgba(255, 255, 255, 0.363);
+    height: 90%;
+}
+.clock{
+    float: right;
+}
+.mainIcon {
+    float: right;
+    z-index: 5;
+    position: relative;
+    height: 200px;
+    width: 200px;
+}
+.icon {  
+    margin-bottom: 0px;
+}
+
+.card-body {
+    padding-top: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+

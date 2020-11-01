@@ -19,65 +19,38 @@
                 <h5 class="search col-12"> 
                     Get Report:
                 </h5>
-                <input id="city" type="text" class="col" placeholder="Enter City">
+                <input id="input" type="text" class="col" placeholder="Enter City">
                     <button type="button" class="btn btn-outline-primary searchBtn col-3">
                         <img src="./assets/search-icon.png" alt="" class="magGlass" height="20px" width="20px">
                     </button>
             </div>
 <!-- History "button/divs" -->
-            <!-- <div class="col history">Test</div> -->
-           
+            <div class="history"></div>
+                
         </section>
 <!-- Display of search results -->
-        <section class="col-9 display">
+        <section class="col-9">
           
-            <div class="row card mb-3" id="display">
-                <div class="card-body" style="text-align: left">
-                    <h2 class="cityName"></h2>
+            <div class="row card mb-3 display">
+                <div id="display" class="card-body current-info" style="text-align: left; padding-bottom: 0px; height: 221px;">
+                    <!-- <h2 class="cityName"></h2>
                     <div class="temp"></div>
                     <div class="humid"></div>
                     <div class="wind"></div>
-                    <div class="uv"></div>
+                    <div class="uv"></div> -->
                 </div>
             </div>
             
             <h4 class="row" style="margin: 0px; padding-bottom: 5px;">5 Day Forecast:</h4> 
-            <section class="row">   
-                <div class="col card text-white bg-primary mb-3 col" style="max-width: auto;">
-                    <div class="card-header">Header</div>
+            <section class="row forecast">   
+                <!-- <div class="col card text-white bg-primary mb-3 col" style="max-width: auto;">
+                    <div id="display" class="card-header day">Day</div>
                     <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 class="card-title icon">icon</h5>
+                        <p class="card-text temp">Temp</p>
+                        <p class="card-text humid">Humidity</p>
                     </div>
-                </div>
-                <div class="col card text-white bg-primary mb-3 col" style="max-width: auto;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-                <div class="col card text-white bg-primary mb-3 col" style="max-width: auto;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-                <div class="col card text-white bg-primary mb-3 col" style="max-width: auto;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
-                <div class="col card text-white bg-primary mb-3 col" style="max-width: auto;">
-                    <div class="card-header">Header</div>
-                    <div class="card-body">
-                        <h5 class="card-title">Primary card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                </div>
+                </div> -->
             </section>     
         </section>
     </main>
@@ -85,7 +58,7 @@
         <p id="credit"><em>Powered by</em><img src="assets/logo_white_cropped.png" alt="Open Weather Logo" style="height: 25px; width: auto;"></p>
     </footer>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     
