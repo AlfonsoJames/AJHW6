@@ -5,7 +5,7 @@ Search a city to get current weather info and 5 day forcast.
 The following image demonstrates the application functionality:
 
 
-
+![weather dashboard demo](./assets/Screenshot.png)
 
 Live site: https://alfonsojames.github.io/AJHW6/
 
