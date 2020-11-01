@@ -5,6 +5,7 @@ body {
     height: 100vh;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
+    background-size: cover;
     
 }
 header { 
@@ -15,11 +16,11 @@ header {
     box-shadow: 0px 5px 20px 15px rgba(0, 0, 0, 0.8);
     position: relative;
     z-index: 3;
+    background-size: cover;
 }
 main {
     position: relative;
     color: white;   
-    background-image: url(./spectrum.jpg);
     background-size: cover;
     margin-top: 15px;
     margin-right: 0px;
@@ -38,24 +39,24 @@ main {
     
     align-content: center;
     text-align: center;
-    /* box-shadow: 5px 5px 10px 0px black; */
+    
     
     
 }
 .search {
     text-align: center;
     align-content: center;
-    /* text-shadow: 5px 5px 10px black; */
+    /* box-shadow: 5px 5px 10px 5px black; */
 }
 
 .searchBtn {
     background-color: rgb(255, 255, 255);
-    /* color: white; */
+    box-shadow: 5px 5px 15px 5px black;
 }
 .history {
    
     z-index: 3;
-    box-shadow: 5px 5px 10px 5px black;
+    box-shadow: 5px 5px 15px 5px black;
     cursor: pointer;
 }
 .display {
@@ -67,12 +68,14 @@ main {
     padding-top: 0px;
     padding-bottom: 10px;
     border-bottom-width: 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16pt;
 
     /* background-image: radial-gradient(#1aff00ba, #0052ff); */
 }
 footer {
     color: white;
-    text-shadow: 5px 5px 5px black;
+    
     position: relative;
     align-content: center;
     margin-top: 25px;
@@ -87,6 +90,8 @@ footer {
 .overall {
     background-color: rgba(77, 77, 77, 0.5);
     height: 90%;
+    padding: 0px;
+    box-shadow: 0px 0px 10px 0px black;
 }
 .clock{
     float: right;
@@ -106,9 +111,16 @@ footer {
     padding-top: 0px;
     padding-right: 10px;
     padding-left: 10px;
+    
 }
 .uv {
 font-weight: bolder;
 text-shadow: 0px 0px 5px white;
 }
+#credit {
+    
+    text-align: center;
+    border: 0px;
+}
+
 

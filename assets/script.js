@@ -75,13 +75,16 @@ function forecast(city) {
       return item.dt_txt.indexOf("15:00:00") > -1;
     });
     populateHistory();
+    $('h4').html("5 Day Forecast:")
     var mainIconID = res.list[0].weather[0].icon
     var mainIconUrl = "https://openweathermap.org/img/wn/" + mainIconID + "@2x.png";
     var mainIcon = $("<img>");
     mainIcon.attr("src", mainIconUrl).attr("style", "width: 200px;");
     $(".mainIcon").append(mainIcon);
-    console.log(mainIconID);
-    var backG = $("main")
+    // console.log(mainIconID);
+    var backGM = $("main")
+    var backGB = $("body")
+    var backGH = $("header")
     var clearD = './assets/sunshine.jpg';
     var clearN ='./assets/clearnight.jpg';
     var scattered = './assets/scat.jpg';
@@ -95,60 +98,98 @@ function forecast(city) {
     var spectrum = './assets/spectrum.jpg';
     switch (mainIconID) {
       case "01d":
-        backG.css('background-image', 'url(' + clearD + ')')
+        backGM.css('background-image', 'url(' + clearD + ')');
+        backGB.css('background-image', 'url(' + clearD + ')');
+        backGH.css('background-image', 'url(' + clearD + ')');
         break;
       case "01n":
-        backG.css('background-image', 'url(' + clearN + ')')
+        backGM.css('background-image', 'url(' + clearN + ')');
+        backGB.css('background-image', 'url(' + clearN + ')');
+        backGH.css('background-image', 'url(' + clearN + ')');
         break;
       case "02d":
-        backG.css('background-image', 'url(' + scattered + ')')
+        backGM.css('background-image', 'url(' + scattered + ')');
+        backGB.css('background-image', 'url(' + scattered + ')');
+        backGH.css('background-image', 'url(' + scattered + ')');
         break;
       case "02n":
-        backG.css('background-image', 'url(' + scattered + ')')
+        backGM.css('background-image', 'url(' + scattered + ')');
+        backGB.css('background-image', 'url(' + scattered + ')');
+        backGH.css('background-image', 'url(' + scattered + ')');
         break;  
       case "03d":
-        backG.css('background-image', 'url(' + partlyC + ')')
+        backGM.css('background-image', 'url(' + partlyC + ')');
+        backGB.css('background-image', 'url(' + partlyC + ')');
+        backGH.css('background-image', 'url(' + partlyC + ')');
         break;
       case "03n":
-        backG.css('background-image', 'url(' + partlyC + ')')
+        backGM.css('background-image', 'url(' + partlyC + ')');
+        backGB.css('background-image', 'url(' + partlyC + ')');
+        backGH.css('background-image', 'url(' + partlyC + ')');
         break;
       case "04d":
-        backG.css('background-image', 'url(' + overcast + ')')
+        backGM.css('background-image', 'url(' + overcast + ')');
+        backGB.css('background-image', 'url(' + overcast + ')');
+        backGH.css('background-image', 'url(' + overcast + ')');
         break;
       case "04n":
-        backG.css('background-image', 'url(' + overcast + ')')
+        backGM.css('background-image', 'url(' + overcast + ')');
+        backGB.css('background-image', 'url(' + overcast + ')');
+        backGH.css('background-image', 'url(' + overcast + ')');
         break;
       case "09d":
-        backG.css('background-image', 'url(' + rainD + ')')
+        backGM.css('background-image', 'url(' + rainD + ')');
+        backGB.css('background-image', 'url(' + rainD + ')');
+        backGH.css('background-image', 'url(' + rainD + ')');
         break;
       case "09n":
-        backG.css('background-image', 'url(' + rainN + ')')
+        backGM.css('background-image', 'url(' + rainN + ')');
+        backGB.css('background-image', 'url(' + rainN + ')');
+        backGH.css('background-image', 'url(' + rainN + ')');
       case "10d":
-        backG.css('background-image', 'url(' + rainD + ')')
+        backGM.css('background-image', 'url(' + rainD + ')');
+        backGB.css('background-image', 'url(' + rainD + ')');
+        backGH.css('background-image', 'url(' + rainD + ')');
         break;
       case "10n":
-        backG.css('background-image', 'url(' + rainN + ')')
+        backGM.css('background-image', 'url(' + rainN + ')');
+        backGB.css('background-image', 'url(' + rainN + ')');
+        backGH.css('background-image', 'url(' + rainN + ')');
         break;  
       case "11d":
-        backG.css('background-image', 'url(' + thunder + ')')
+        backGM.css('background-image', 'url(' + thunder + ')');
+        backGB.css('background-image', 'url(' + thunder + ')');
+        backGH.css('background-image', 'url(' + thunder + ')');
         break;
       case "11n":
-        backG.css('background-image', 'url(' + thunder + ')')
+        backGM.css('background-image', 'url(' + thunder + ')');
+        backGB.css('background-image', 'url(' + thunder + ')');
+        backGH.css('background-image', 'url(' + thunder + ')');
         break;  
       case "13d":
-        backG.css('background-image', 'url(' + snow + ')')
+        backGM.css('background-image', 'url(' + snow + ')');
+        backGB.css('background-image', 'url(' + snow + ')');
+        backGH.css('background-image', 'url(' + snow + ')');
         break;  
       case "13n":
-        backG.css('background-image', 'url(' + snow + ')')
+        backGM.css('background-image', 'url(' + snow + ')');
+        backGB.css('background-image', 'url(' + snow + ')');
+        backGH.css('background-image', 'url(' + snow + ')');
         break;  
       case "50d":
-        backG.css('background-image', 'url(' + fog + ')')
+        backGM.css('background-image', 'url(' + fog + ')');
+        backGB.css('background-image', 'url(' + fog + ')');
+        backGH.css('background-image', 'url(' + fog + ')');
         break;
       case "50n":
-        backG.css('background-image', 'url(' + fog + ')')
+        backGM.css('background-image', 'url(' + fog + ')');
+        backGB.css('background-image', 'url(' + fog + ')');
+        backGH.css('background-image', 'url(' + fog + ')');
         break;    
         default:
-        backG.css('background-image', 'url(' + spectrum + ')')  
+        backGM.css('background-image', 'url(' + spectrum + ')')
+        backGB.css('background-image', 'url(' + spectrum + ')');
+        backGH.css('background-image', 'url(' + spectrum + ')');  
     }
     
     $(".forecast").html("");
