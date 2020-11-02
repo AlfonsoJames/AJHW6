@@ -12,17 +12,19 @@
     <header class="span container-fluid">
         <h1><strong>Weather Dashboard</strong></h1>
     </header>
-    <main class="row container-fluid">
+    <main class="row">
         <section id="sidebar" class="col-3">
 <!-- search text input and button-->
             <div class="row search">
                 <h5 class="search col-12"> 
                     Get Report:
                 </h5>
-                <input id="input" type="text" class="col" placeholder="Enter City">
-                    <button type="button" class="btn btn-outline-primary searchBtn col-3">
+                <form id="target" action="">
+                    <input id="input" type="text" class="col-9" placeholder="Enter City"></input>
+                    <button type="submit" class="btn btn-outline-primary searchBtn col-3 float-right">
                         <img src="./assets/search-icon.png" alt="" class="magGlass" height="20px" width="20px">
-                    </button>
+                    </button>    
+                </form>
             </div>
 <!-- History "button/divs" -->
             <div class="history"></div>

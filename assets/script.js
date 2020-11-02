@@ -21,6 +21,7 @@ function populateHistory() {
   $(".history").html("");
   $.each(savedCities, function(){
     var previous = $("<div>").html(this);
+    var br = $("<br>");
     previous.addClass("col click");
     previous.attr('id', this);
     $(".history").prepend(previous);
@@ -82,6 +83,7 @@ function forecast(city) {
     mainIcon.attr("src", mainIconUrl).attr("style", "width: 200px;");
     $(".mainIcon").append(mainIcon);
     // console.log(mainIconID);
+// Switch to change background image depending on weather conditions    
     var backGM = $("main")
     var backGB = $("body")
     var backGH = $("header")
@@ -250,7 +252,7 @@ function forecast(city) {
 }
 
 //search button function
-$('.btn').click(function(e){
+$('#target').submit(function(e){
   e.preventDefault();
   var city=$("#input").val().trim().toUpperCase();
   if  (city == null || city == "") {
